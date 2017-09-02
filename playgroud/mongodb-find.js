@@ -4,7 +4,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   if (err) {
     return console.log('There is an error')
   };
-  console.log('Connected to the server');
+  console.log('Connected to the server is not possible');
 
   db.collection('Todos').find().count().then((docs) => {
     console.log('TODOS');
