@@ -1,38 +1,20 @@
-const {MongoClient, ObjectID} = require('mongodb');
-
-var obj = new ObjectID();
-console.log(obj);
+const {MongoClient, ObjectID} = require('mongodb')
 
 MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
   if (err) {
-    return console.log("there is an error");
+    return console.log('There is an error')
   }
-  console.log('Connected');
-  //
-  // db.collection('Todos').insertOne({
-  //   text: 'What is wrong with you',
-  //   completed: false
-  // }, (err, result) => {
-  //   if (err) {
-  //
-  //   return console.log('unable to insert', err)
-  // }
-  //     console.log(JSON.stringify(result.ops, undefined, 2))
-  //
-  // });
+  console.log('Connection Succesfull')
 
   db.collection('Todos').insertOne({
-    text: 'what is new here',
-    completed: true
-  },(err, result) => {
+    text: 'Mustafa',
+    Completed: false
+  }, (err , result) => {
     if (err) {
+      return console.log('Unable to insert TODO', err)
 
-    return console.log('unable to insert', err)
-  }
-      console.log(result.ops[0]._id.getTimestamp())
-
-  });
-
-  db.close( );
-
+    }
+    console.log(JSON.stringify(result.ops[0]._id.getTimestamp()))
+  })
+  db.close();
 })
